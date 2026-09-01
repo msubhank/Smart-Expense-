@@ -1,0 +1,25 @@
+# Node & Frontend
+node_modules/
+dist/
+.env
+.env.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java & Backend
+backend/target/
+*.class
+*.jar
+*.war
+
+# Firebase Credentials (NEVER commit private keys)
+serviceAccountKey.json
+backend/src/main/resources/serviceAccountKey.json
+
+# IDE & Editor Configs
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
