@@ -24,7 +24,7 @@ A full-stack, portfolio-ready expense management and financial tracking applicat
 ## 🗺️ Project Phases
 
 - [x] **Phase 1**: Project Scaffolding & Architecture Foundation (Spring Boot + React + Tailwind)
-- [ ] **Phase 2**: Firebase Authentication & Spring Security JWT Verification Filter
+- [x] **Phase 2**: Firebase Authentication & Spring Security JWT Verification Filter
 - [ ] **Phase 3**: Domain Models, Firestore DAOs & REST API Controllers
 - [ ] **Phase 4**: Frontend UI, State Management & Interactive Dashboard
 - [ ] **Phase 5**: Financial Analytics Engine, PDF Statements & CSV Export
@@ -32,12 +32,42 @@ A full-stack, portfolio-ready expense management and financial tracking applicat
 
 ---
 
-## ⚡ Getting Started (Phase 1)
+## ⚡ Getting Started
 
-### Frontend
+### 1. Frontend (React + Vite)
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 Runs the Vite development server on `http://localhost:5173`.
+
+### 2. Backend (Spring Boot)
+```bash
+cd backend
+mvn spring-boot:run
+```
+Starts the Spring Boot server on `http://localhost:8080`.
+
+*(Note: On Windows PowerShell without global Maven, you can run:*
+```powershell
+& "$env:USERPROFILE\.maven\apache-maven-3.9.6\bin\mvn.cmd" spring-boot:run
+```
+*or click "Run" in your IDE's `SmartExpenseApplication.java`).*
+
+---
+
+## 🔒 Phase 2 Authentication Endpoints
+
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/health` | **Public** | Verifies server health and CORS connectivity |
+| `GET` | `/api/auth/me` | **Protected** | Verifies Firebase JWT Bearer token and returns authenticated user claims |
+
+---
+
+## 🔑 Firebase Configuration (Optional for Dev, Required for Live Auth)
+
+1. **Frontend**: Copy [`frontend/.env.example`](frontend/.env.example) to `frontend/.env` and enter your Firebase web app keys.
+2. **Backend**: Download your Firebase Admin private key and save it as `backend/src/main/resources/serviceAccountKey.json` (see [`serviceAccountKey.sample.json`](backend/src/main/resources/serviceAccountKey.sample.json)).
+
