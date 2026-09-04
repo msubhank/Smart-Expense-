@@ -34,18 +34,18 @@ api.interceptors.request.use(
 );
 
 // Response Interceptor: Uniform error handling
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response) {
-      if (error.response.status === 401) {
-        console.warn('Backend rejected request: Unauthorized (401). Valid Firebase token required.');
-      }
-    } else if (error.request) {
-      console.warn('Backend server is unreachable. Is Spring Boot running on port 8080?');
-    }
-    return Promise.reject(error);
-  }
-);
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response) {
+//       if (error.response.status === 401) {
+//         console.warn('Backend rejected request: Unauthorized (401). Valid Firebase token required.');
+//       }
+//     } else if (error.request) {
+//       console.warn('Backend server is unreachable. Is Spring Boot running on port 8080?');
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 export default api;
